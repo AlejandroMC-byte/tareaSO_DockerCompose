@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:14
+    build: ./database/
+    ports: 
+      - "5432:5432"
+  app :
+    build: ./app/
+
+    environment:
+      - POSTGRES_DB=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
